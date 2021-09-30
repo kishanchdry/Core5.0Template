@@ -1,0 +1,87 @@
+﻿@model User
+@{
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+    List<Role> AllRoles = ViewBag.Roles;
+}
+
+<div class="EditUserRole row">
+
+    <input type="hidden" asp-for="Id" />
+    <h4>Edit Role for user here</h4>
+
+    <div class="AssignedRoles col-lg-12">
+        @if (Model != null)
+        {
+            foreach (var item in Model.UserRoles)
+            {
+                <div class="row"><span class="modal-title role col-lg-4" data-id="@item.RoleId">@item.Role.Name</span><span class="action col-lg-1"><i class="fas fa-trash-alt"></i></span></div>
+            }
+        }
+    </div>
+
+    <div class="OtherAvailableRoles col-lg-12">
+        @if (AllRoles != null)
+        {
+            foreach (var item in AllRoles)
+            {
+                if (Model.UserRoles == null || Model.UserRoles.Count == 0 || !Model.UserRoles.Any(e => e.RoleId == item.Id))
+                {
+                    <div class="row"><span class="modal-title role col-lg-4" data-id="@item.Id">@item.Name</span><span class="action col-lg-1"><i class="fas fa-plus"></i></span></div>
+                }
+            }
+        }
+    </div>
+</div>
+
+<input type="button" value="Save" onclick="SaveUserRoles();" class="btn btn-primary" />
+
+
+@section Scripts {
+    <script>
+
+        $(".EditUserRole .action").click(function () {
+            debugger;
+            var _this = $(this);
+            var div = _this.closest("div");
+
+            if (_this.closest(".AssignedRoles").length > 0) {
+                _this.find("i").removeClass("fa-trash-alt");
+                _this.find("i").addClass("fa-plus");
+                $(".OtherAvailableRoles").append(div);
+                $(".AssignedRoles").find(div).remove();
+            }
+            else {
+                _this.find("i").removeClass("fa-plus");
+                _this.find("i").addClass("fa-trash-alt");
+                $(".AssignedRoles").append(div);
+                $(".OtherAvailableRoles").find(div).remove();
+            }
+        });
+
+        function SaveUserRoles() {
+            var roleIds = [];
+
+            $(".AssignedRoles .role").each(function () {
+                roleIds.push($(this).attr("data-id"));
+            });
+
+            $.ajax({
+                type: "Post",
+                url: "@Url.Action("SaveUserRoles", "RoleManagement", new { area = "Admin"})",
+                data: {
+                    Id: $("#Id").val(),
+                    roleIds: roleIds
+                },
+                success: function (response) {
+                    if (response.result) {
+                        window.location = '@Url.Action("UserRoleManagement", "RoleManagement", new { area = "Admin" })';
+                    }
+                    else {
+                        toastr.warning("data not correct");
+                    }
+                }
+            });
+        }
+
+    </script>
+}

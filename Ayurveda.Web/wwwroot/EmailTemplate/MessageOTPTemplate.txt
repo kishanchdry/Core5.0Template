@@ -1,0 +1,1 @@
+﻿Your one time password is @@OTP Please do not share with anyone.

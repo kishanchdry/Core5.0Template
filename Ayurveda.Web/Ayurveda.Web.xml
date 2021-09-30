@@ -1,0 +1,1407 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Ayurveda.Web</name>
+    </assembly>
+    <members>
+        <member name="T:Ayurveda.Web.Areas.Admin.Controllers.BaseControllers.BaseController">
+            <summary>
+            Handle base requests
+            </summary>
+        </member>
+        <member name="T:Ayurveda.Web.Areas.Admin.Controllers.BaseControllers.BaseController`1">
+            <summary>
+            Generic base controller
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="F:Ayurveda.Web.Areas.Admin.Controllers.BaseControllers.BaseController`1.service">
+            <summary>
+            service
+            </summary>
+        </member>
+        <member name="M:Ayurveda.Web.Areas.Admin.Controllers.BaseControllers.BaseController`1.#ctor(Services.IServices.IGenericService{`0})">
+            <summary>
+            construct generic services
+            </summary>
+            <param name="service"></param>
+        </member>
+        <member name="M:Ayurveda.Web.Areas.Admin.Controllers.BaseControllers.BaseController`1.AddUpdate(System.Int64)">
+            <summary>
+            Base add update
+            </summary>
+            <param name="id">id</param>
+            <returns></returns>
+        </member>
+        <member name="M:Ayurveda.Web.Areas.Admin.Controllers.BaseControllers.BaseController`1.AddUpdate(`0)">
+            <summary>
+            Save add update data
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Ayurveda.Web.Areas.Admin.Controllers.BaseControllers.BaseController`1.Remove(`0)">
+            <summary>
+            remove model
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Ayurveda.Web.Areas.Admin.Controllers.BaseControllers.BaseController`1.Remove(System.Int64)">
+            <summary>
+            remove item
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Ayurveda.Web.Areas.Admin.Controllers.BaseControllers.BaseController`1.GetAll">
+            <summary>
+            Get all item list
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Ayurveda.Web.Areas.Admin.Controllers.BaseControllers.BaseController`1.View(System.Int64)">
+            <summary>
+            View by Id
+            </summary>
+            <param name="Id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Ayurveda.Web.Areas.Admin.Controllers.BaseControllers.BaseController`1.ViewByUser(System.String)">
+            <summary>
+            Get all by user id
+            </summary>
+            <param name="userId"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Ayurveda.Web.Areas.Admin.Controllers.BrandController">
+            <summary>
+            Brand management
+            </summary>
+        </member>
+        <member name="M:Ayurveda.Web.Areas.Admin.Controllers.BrandController.#ctor(Ayurveda.Web.Extensions.SaveFormFileSerivce,Services.Services.BrandService)">
+            <summary>
+            construct services
+            </summary>
+            <param name="saveFormFileSerivce"></param>
+            <param name="service"></param>
+        </member>
+        <member name="M:Ayurveda.Web.Areas.Admin.Controllers.BrandController.Index">
+            <summary>
+            View Brands
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Ayurveda.Web.Areas.Admin.Controllers.BrandController.AddUpdate(System.Int64)">
+            <summary>
+            Get barnd for Add or update
+            </summary>
+            <param name="id">brand id</param>
+            <returns></returns>
+        </member>
+        <member name="M:Ayurveda.Web.Areas.Admin.Controllers.BrandController.AddUpdate(Shared.Models.BrandModel)">
+            <summary>
+            Save added or updated brand
+            </summary>
+            <param name="model">brand detais</param>
+            <returns></returns>
+        </member>
+        <member name="M:Ayurveda.Web.Areas.Admin.Controllers.BrandController.GetAll">
+            <summary>
+            Get all brand details
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Ayurveda.Web.Areas.Admin.Controllers.BrandController.Remove(System.Int64)">
+            <summary>
+            Remove brand
+            </summary>
+            <param name="id">brand id</param>
+            <returns></returns>
+        </member>
+        <member name="M:Ayurveda.Web.Areas.Admin.Controllers.BrandController.View(System.Int64)">
+            <summary>
+            View a brand
+            </summary>
+            <param name="id">brand id</param>
+            <returns></returns>
+        </member>
+        <member name="M:Ayurveda.Web.Areas.Admin.Controllers.BrandController.ViewByUser(System.String)">
+            <summary>
+            get brand by user id
+            </summary>
+            <param name="userId">brand user id</param>
+            <returns></returns>
+        </member>
+        <member name="M:Ayurveda.Web.Areas.Admin.Controllers.BrandController.ChangeStatus(System.Int64)">
+            <summary>
+            change brand status
+            </summary>
+            <param name="id">brand id</param>
+            <returns></returns>
+        </member>
+        <member name="T:Ayurveda.Web.Areas.Admin.Controllers.CategoryController">
+            <summary>
+            manager categories
+            </summary>
+        </member>
+        <member name="M:Ayurveda.Web.Areas.Admin.Controllers.CategoryController.#ctor(Services.Services.CategoryService,Microsoft.AspNetCore.Identity.UserManager{Data.Entities.Identity.User},Microsoft.AspNetCore.Identity.SignInManager{Data.Entities.Identity.User},Ayurveda.Web.Extensions.SaveFormFileSerivce)">
+            <summary>
+            construct services
+            </summary>
+            <param name="categoryService"></param>
+            <param name="userManager"></param>
+            <param name="signInManager"></param>
+            <param name="saveFormFileSerivce"></param>
+        </member>
+        <member name="M:Ayurveda.Web.Areas.Admin.Controllers.CategoryController.ProductCategory(System.String)">
+            <summary>
+            Ger product category
+            </summary>
+            <param name="MerchantId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Ayurveda.Web.Areas.Admin.Controllers.CategoryController.ProductCategoryList(System.String)">
+            <summary>
+            product category list
+            </summary>
+            <param name="MerchantId">create user id</param>
+            <returns></returns>
+        </member>
+        <member name="M:Ayurveda.Web.Areas.Admin.Controllers.CategoryController.ProductCategoryDetail(System.Int64)">
+            <summary>
+            product category details
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Ayurveda.Web.Areas.Admin.Controllers.CategoryController.AddEditProductCategory(System.Int64)">
+            <summary>
+            Add or edit category
+            </summary>
+            <param name="id">vategory id</param>
+            <returns></returns>
+        </member>
+        <member name="M:Ayurveda.Web.Areas.Admin.Controllers.CategoryController.SaveProductCategory(Shared.Models.CategoryModel)">
+            <summary>
+            save products
+            </summary>
+            <param name="model">category details</param>
+            <returns></returns>
+        </member>
+        <member name="M:Ayurveda.Web.Areas.Admin.Controllers.CategoryController.RemoveProductCategory(System.Int64)">
+            <summary>
+            Remove category
+            </summary>
+            <param name="id">category id</param>
+            <returns></returns>
+        </member>
+        <member name="M:Ayurveda.Web.Areas.Admin.Controllers.CategoryController.ChangeProductCategoryStatus(System.Int64)">
+            <summary>
+            chagne category status
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Ayurveda.Web.Areas.Admin.Controllers.HomeController">
+            <summary>
+            basic management here
+            </summary>
+        </member>
+        <member name="M:Ayurveda.Web.Areas.Admin.Controllers.HomeController.Index">
+            <summary>
+            view
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Ayurveda.Web.Areas.Admin.Controllers.HomeController.AboutUs">
+            <summary>
+            About us
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Ayurveda.Web.Areas.Admin.Controllers.HomeController.ContactUS">
+            <summary>
+            Contact us
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Ayurveda.Web.Areas.Admin.Controllers.ImageController">
+            <summary>
+            Image management
+            </summary>
+        </member>
+        <member name="M:Ayurveda.Web.Areas.Admin.Controllers.ImageController.#ctor(Ayurveda.Web.Extensions.SaveFormFileSerivce,Services.Services.ImageService,AutoMapper.IMapper)">
+            <summary>
+            construct services
+            </summary>
+            <param name="saveFormFileSerivce"></param>
+            <param name="service"></param>
+        </member>
+        <member name="M:Ayurveda.Web.Areas.Admin.Controllers.ImageController.Index">
+            <summary>
+            View Images
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Ayurveda.Web.Areas.Admin.Controllers.ImageController.AddUpdate(System.Int64)">
+            <summary>
+            Get barnd for Add or update
+            </summary>
+            <param name="id">Image id</param>
+            <returns></returns>
+        </member>
+        <member name="M:Ayurveda.Web.Areas.Admin.Controllers.ImageController.AddUpdate(Shared.Models.ImageModel)">
+            <summary>
+            Save added or updated Image
+            </summary>
+            <param name="model">Image detais</param>
+            <returns></returns>
+        </member>
+        <member name="M:Ayurveda.Web.Areas.Admin.Controllers.ImageController.GetAll">
+            <summary>
+            Get all Image details
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Ayurveda.Web.Areas.Admin.Controllers.ImageController.Remove(System.Int64)">
+            <summary>
+            Remove Image
+            </summary>
+            <param name="id">Image id</param>
+            <returns></returns>
+        </member>
+        <member name="M:Ayurveda.Web.Areas.Admin.Controllers.ImageController.View(System.Int64)">
+            <summary>
+            View a Image
+            </summary>
+            <param name="id">Image id</param>
+            <returns></returns>
+        </member>
+        <member name="M:Ayurveda.Web.Areas.Admin.Controllers.ImageController.ViewByUser(System.String)">
+            <summary>
+            get Image by user id
+            </summary>
+            <param name="userId">Image user id</param>
+            <returns></returns>
+        </member>
+        <member name="M:Ayurveda.Web.Areas.Admin.Controllers.ImageController.ChangeStatus(System.Int64)">
+            <summary>
+            change Image status
+            </summary>
+            <param name="id">Image id</param>
+            <returns></returns>
+        </member>
+        <member name="T:Ayurveda.Web.Areas.Admin.Controllers.OfferController">
+            <summary>
+            Offers 
+            </summary>
+        </member>
+        <member name="M:Ayurveda.Web.Areas.Admin.Controllers.OfferController.#ctor(Ayurveda.Web.Extensions.SaveFormFileSerivce,Services.Services.OfferService,Services.Services.ProductService,Services.Services.CategoryService)">
+            <summary>
+            Construct services
+            </summary>
+            <param name="saveFormFileSerivce"></param>
+            <param name="service"></param>
+            <param name="productService"></param>
+            <param name="categoryService"></param>
+        </member>
+        <member name="M:Ayurveda.Web.Areas.Admin.Controllers.OfferController.Index">
+            <summary>
+            view offers
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Ayurveda.Web.Areas.Admin.Controllers.OfferController.AddUpdate(System.Int64)">
+            <summary>
+            Get offer for add or update
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Ayurveda.Web.Areas.Admin.Controllers.OfferController.AddUpdate(Shared.Models.OfferModel)">
+            <summary>
+            offer details for add or update
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Ayurveda.Web.Areas.Admin.Controllers.OfferController.GetAll">
+            <summary>
+            Get all offer list
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Ayurveda.Web.Areas.Admin.Controllers.OfferController.Remove(System.Int64)">
+            <summary>
+            remove offer
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Ayurveda.Web.Areas.Admin.Controllers.OfferController.View(System.Int64)">
+            <summary>
+            view offer
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Ayurveda.Web.Areas.Admin.Controllers.OfferController.ViewByUser(System.String)">
+            <summary>
+            view offer by user
+            </summary>
+            <param name="userId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Ayurveda.Web.Areas.Admin.Controllers.OfferController.ChangeStatus(System.Int64)">
+            <summary>
+            chagne offer status
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Ayurveda.Web.Areas.Admin.Controllers.ProductController">
+            <summary>
+            product management
+            </summary>
+        </member>
+        <member name="M:Ayurveda.Web.Areas.Admin.Controllers.ProductController.#ctor(Services.Services.ProductService,Services.Services.CategoryService,Services.Services.BrandService,Microsoft.AspNetCore.Identity.UserManager{Data.Entities.Identity.User},Microsoft.AspNetCore.Identity.SignInManager{Data.Entities.Identity.User},Ayurveda.Web.Extensions.SaveFormFileSerivce)">
+            <summary>
+            construct services
+            </summary>
+            <param name="productServices"></param>
+            <param name="productCategoryServices"></param>
+            <param name="brandService"></param>
+            <param name="userManager"></param>
+            <param name="signInManager"></param>
+            <param name="fileSerivce"></param>
+        </member>
+        <member name="M:Ayurveda.Web.Areas.Admin.Controllers.ProductController.Product(System.Nullable{System.Int64},System.Nullable{System.Int64},System.String)">
+            <summary>
+            product view
+            </summary>
+            <param name="CategoryId"></param>
+            <param name="BrandId"></param>
+            <param name="MerchantId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Ayurveda.Web.Areas.Admin.Controllers.ProductController.AddEditProduct(System.Int64,System.String,System.Int64)">
+            <summary>
+            Get details for add or update products
+            </summary>
+            <param name="id"></param>
+            <param name="userId"></param>
+            <param name="CategoryId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Ayurveda.Web.Areas.Admin.Controllers.ProductController.SaveProduct(Shared.Models.ProductModel)">
+            <summary>
+            product details for add or update
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Ayurveda.Web.Areas.Admin.Controllers.ProductController.ProductDetail(System.Int64)">
+            <summary>
+            product details
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Ayurveda.Web.Areas.Admin.Controllers.ProductController.ProductList">
+            <summary>
+            all product list 
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Ayurveda.Web.Areas.Admin.Controllers.ProductController.ProductsList(System.Int64,System.Int64,System.String)">
+            <summary>
+            product list
+            </summary>
+            <param name="CategoryId"></param>
+            <param name="BrandId"></param>
+            <param name="MerchantId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Ayurveda.Web.Areas.Admin.Controllers.ProductController.ChangeProductStatus(System.Int64)">
+            <summary>
+            changes product status
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Ayurveda.Web.Areas.Admin.Controllers.ProductController.RemoveProduct(System.Int64)">
+            <summary>
+            remove product 
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Ayurveda.Web.Areas.Admin.Controllers.RoleManagementController">
+            <summary>
+            Role management controller
+            </summary>
+        </member>
+        <member name="M:Ayurveda.Web.Areas.Admin.Controllers.RoleManagementController.#ctor(Microsoft.AspNetCore.Identity.UserManager{Data.Entities.Identity.User},Microsoft.AspNetCore.Identity.RoleManager{Data.Entities.Identity.Role},Services.IServices.Identity.IRoleActionsService)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="userManager"></param>
+            <param name="rolemanager"></param>
+            <param name="roleActionsService"></param>
+        </member>
+        <member name="M:Ayurveda.Web.Areas.Admin.Controllers.RoleManagementController.Index">
+            <summary>
+            View roles
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Ayurveda.Web.Areas.Admin.Controllers.RoleManagementController.UserRoleManagement">
+            <summary>
+            View roles
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Ayurveda.Web.Areas.Admin.Controllers.RoleManagementController.Edit(System.String)">
+            <summary>
+            Edit role details
+            </summary>
+            <param name="Id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Ayurveda.Web.Areas.Admin.Controllers.RoleManagementController.EditUserRoles(System.String)">
+            <summary>
+            Edit role details
+            </summary>
+            <param name="Id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Ayurveda.Web.Areas.Admin.Controllers.RoleManagementController.Save(System.String,System.Collections.Generic.List{System.String},System.Collections.Generic.List{System.String})">
+            <summary>
+            Save role permission
+            </summary>
+            <param name="Id"></param>
+            <param name="controllerNames"></param>
+            <param name="actionNames"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Ayurveda.Web.Areas.Admin.Controllers.RoleManagementController.SaveUserRoles(System.String,System.Collections.Generic.List{System.String})">
+            <summary>
+            Save user roles
+            </summary>
+            <param name="Id"></param>
+            <param name="roleIds"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Ayurveda.Web.Areas.Jewellery.Controllers.HomeController">
+            <summary>
+            basic management here
+            </summary>
+        </member>
+        <member name="M:Ayurveda.Web.Areas.Jewellery.Controllers.HomeController.#ctor(Services.Services.ProductService,Services.Services.ImageService)">
+            <summary>
+            Construct services
+            </summary>
+            <param name="productServices"></param>
+        </member>
+        <member name="M:Ayurveda.Web.Areas.Jewellery.Controllers.HomeController.Index">
+            <summary>
+            view
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Ayurveda.Web.Areas.Jewellery.Controllers.HomeController.Gallary">
+            <summary>
+            view
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Ayurveda.Web.Areas.Jewellery.Controllers.HomeController.Images(System.Guid)">
+            <summary>
+            view
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Ayurveda.Web.Areas.Jewellery.Controllers.HomeController.ProductImages(System.Int64)">
+            <summary>
+            view
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Ayurveda.Web.Areas.Jewellery.Controllers.HomeController.Products">
+            <summary>
+            view
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Ayurveda.Web.Areas.Jewellery.Controllers.HomeController.ViewProducts(System.Int64)">
+            <summary>
+            view
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Ayurveda.Web.Areas.Jewellery.Controllers.HomeController.AboutUs">
+            <summary>
+            About us
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Ayurveda.Web.Areas.Jewellery.Controllers.HomeController.ContactUS">
+            <summary>
+            Contact us
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Ayurveda.Web.Authorization.Policies.AuthorizationPolicyBuilderExtensions">
+            <summary>
+            Authorization builder
+            </summary>
+        </member>
+        <member name="M:Ayurveda.Web.Authorization.Policies.AuthorizationPolicyBuilderExtensions.RequireCustomClaim(Microsoft.AspNetCore.Authorization.AuthorizationPolicyBuilder,System.String)">
+            <summary>
+            Require claim
+            </summary>
+            <param name="builder"></param>
+            <param name="claimType"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Ayurveda.Web.Authorization.Policies.AuthorizationPolicyBuilderExtensions.RequireCustomPolicy(Microsoft.AspNetCore.Authorization.AuthorizationPolicyBuilder)">
+            <summary>
+            custom policy
+            </summary>
+            <param name="builder"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Ayurveda.Web.Authorization.Policies.CustomRequireClaim">
+            <summary>
+            Authorize with custom claim
+            </summary>
+        </member>
+        <member name="M:Ayurveda.Web.Authorization.Policies.CustomRequireClaim.#ctor(System.String)">
+            <summary>
+            custom requie claim
+            </summary>
+            <param name="claimType"></param>
+        </member>
+        <member name="P:Ayurveda.Web.Authorization.Policies.CustomRequireClaim.ClaimType">
+            <summary>
+            claim type
+            </summary>
+        </member>
+        <member name="T:Ayurveda.Web.Authorization.Policies.CustomRequireClaimHandler">
+            <summary>
+            Require claim handler
+            </summary>
+        </member>
+        <member name="M:Ayurveda.Web.Authorization.Policies.CustomRequireClaimHandler.HandleRequirementAsync(Microsoft.AspNetCore.Authorization.AuthorizationHandlerContext,Ayurveda.Web.Authorization.Policies.CustomRequireClaim)">
+            <summary>
+            Handle claims
+            </summary>
+            <param name="context"></param>
+            <param name="requirement"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Ayurveda.Web.Authorization.Policies.CustomRequirePolicy">
+            <summary>
+            Authorize with custom claim
+            </summary>
+        </member>
+        <member name="M:Ayurveda.Web.Authorization.Policies.CustomRequirePolicy.#ctor">
+            <summary>
+            custom requie claim
+            </summary>
+        </member>
+        <member name="T:Ayurveda.Web.Authorization.Policies.CustomRequirePolicyHandler">
+            <summary>
+            Require claim handler
+            </summary>
+        </member>
+        <member name="M:Ayurveda.Web.Authorization.Policies.CustomRequirePolicyHandler.#ctor(Microsoft.AspNetCore.Http.IHttpContextAccessor,Services.IServices.Identity.IRoleActionsService,Microsoft.AspNetCore.Identity.UserManager{Data.Entities.Identity.User})">
+            <summary>
+            construct srvices
+            </summary>
+            <param name="httpContextAccessor"></param>
+            <param name="roleActionsService"></param>
+        </member>
+        <member name="M:Ayurveda.Web.Authorization.Policies.CustomRequirePolicyHandler.HandleRequirementAsync(Microsoft.AspNetCore.Authorization.AuthorizationHandlerContext,Ayurveda.Web.Authorization.Policies.CustomRequirePolicy)">
+            <summary>
+            Handle claims
+            </summary>
+            <param name="context"></param>
+            <param name="requirement"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Ayurveda.Web.Controllers.Base.AccountController">
+            <summary>
+            Account manangement
+            </summary>
+        </member>
+        <member name="M:Ayurveda.Web.Controllers.Base.AccountController.#ctor(Microsoft.AspNetCore.Identity.UserManager{Data.Entities.Identity.User},Microsoft.AspNetCore.Identity.SignInManager{Data.Entities.Identity.User})">
+            <summary>
+            Construct services
+            </summary>
+            <param name="userManager"></param>
+            <param name="signInManager"></param>
+        </member>
+        <member name="M:Ayurveda.Web.Controllers.Base.AccountController.Error">
+            <summary>
+            Error page
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Ayurveda.Web.Controllers.Base.AccountController.Login(System.String)">
+            <summary>
+            Get Login user
+            </summary>
+            <param name="returnUrl"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Ayurveda.Web.Controllers.Base.AccountController.Login(Ayurveda.Web.Models.Account.LoginViewModel)">
+            <summary>
+            Login user
+            </summary>
+            <param name="loginViewModel"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Ayurveda.Web.Controllers.Base.AccountController.Register">
+            <summary>
+            Get new user Registion page
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Ayurveda.Web.Controllers.Base.AccountController.Register(Ayurveda.Web.Models.Account.RegisterViewModel)">
+            <summary>
+            Register new user
+            </summary>
+            <param name="registerViewModel"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Ayurveda.Web.Controllers.Base.AccountController.Logout">
+            <summary>
+            Logout user
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Ayurveda.Web.Controllers.Base.AccountController.AccessDenied">
+            <summary>
+            Access denies
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Ayurveda.Web.Controllers.Base.AccountController.ExternalLogin(System.String,System.String)">
+            <summary>
+            External login for facebook
+            </summary>
+            <param name="provider"></param>
+            <param name="returnUrl"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Ayurveda.Web.Controllers.Base.AccountController.ExternalLoginCallback(System.String,System.String)">
+            <summary>
+            External login call back
+            </summary>
+            <param name="returnUrl"></param>
+            <param name="remoteError"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Ayurveda.Web.Controllers.Base.HomeController">
+            <summary>
+            home page
+            </summary>
+        </member>
+        <member name="M:Ayurveda.Web.Controllers.Base.HomeController.#ctor(Microsoft.Extensions.Logging.ILogger{Ayurveda.Web.Controllers.Base.HomeController})">
+            <summary>
+            construct services
+            </summary>
+            <param name="logger"></param>
+        </member>
+        <member name="M:Ayurveda.Web.Controllers.Base.HomeController.Index">
+            <summary>
+            home
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Ayurveda.Web.Controllers.Base.HomeController.Privacy">
+            <summary>
+            privacy page
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Ayurveda.Web.Controllers.Base.ManageController">
+            <summary>
+            manager user
+            </summary>
+        </member>
+        <member name="M:Ayurveda.Web.Controllers.Base.ManageController.#ctor(Microsoft.AspNetCore.Identity.UserManager{Data.Entities.Identity.User},Microsoft.AspNetCore.Identity.SignInManager{Data.Entities.Identity.User},Ayurveda.Web.Extensions.SendOTPService,Services.IServices.IManageService)">
+            <summary>
+            construct services
+            </summary>
+            <param name="userManager"></param>
+            <param name="signInManager"></param>
+            <param name="sendOTPService"></param>
+            <param name="manageService"></param>
+        </member>
+        <member name="M:Ayurveda.Web.Controllers.Base.ManageController.Index">
+            <summary>
+            get user details
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Ayurveda.Web.Controllers.Base.ManageController.UserView">
+            <summary>
+            view user
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Ayurveda.Web.Controllers.Base.ManageController.VerifyPhoneNumber(System.String)">
+            <summary>
+            verify phone no.
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Ayurveda.Web.Controllers.Base.ManageController.VerifyEmail(System.String)">
+            <summary>
+            verify email
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Ayurveda.Web.Controllers.Base.ManageController.SendPhoneOTP(System.String)">
+            <summary>
+            get otp on phone
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Ayurveda.Web.Controllers.Base.ManageController.SendMailOTP(System.String)">
+            <summary>
+            send otp on email
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Ayurveda.Web.Controllers.Base.ManageController.VerifyOTP(System.String,System.String,System.Nullable{System.Boolean})">
+            <summary>
+            verify opt
+            </summary>
+            <param name="id"></param>
+            <param name="OTP"></param>
+            <param name="isPhoneOTP"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Ayurveda.Web.Controllers.Base.ManageController.ChangeStatus(System.String)">
+            <summary>
+            changes user status
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Ayurveda.Web.Controllers.CartController">
+            <summary>
+            cart management
+            </summary>
+        </member>
+        <member name="M:Ayurveda.Web.Controllers.CartController.#ctor(Services.Services.CartService)">
+            <summary>
+            consturct services
+            </summary>
+            <param name="CartServices"></param>
+        </member>
+        <member name="M:Ayurveda.Web.Controllers.CartController.AddUpdateCart(Shared.Models.CartModel)">
+            <summary>
+            add update carts
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Ayurveda.Web.Controllers.CartController.CartsList(System.String)">
+            <summary>
+            cart list
+            </summary>
+            <param name="userId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Ayurveda.Web.Controllers.CartController.GetCartById(System.Int64)">
+            <summary>
+            get cart details by Id
+            </summary>
+            <param name="CartId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Ayurveda.Web.Controllers.CartController.GetCartListByUserId(System.String)">
+            <summary>
+            get cart list by user
+            </summary>
+            <param name="UserID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Ayurveda.Web.Controllers.CartController.DeleteCart(System.Int64)">
+            <summary>
+            delete cart
+            </summary>
+            <param name="CartId"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Ayurveda.Web.Controllers.OffersController">
+            <summary>
+            offer management 
+            </summary>
+        </member>
+        <member name="M:Ayurveda.Web.Controllers.OffersController.#ctor(Services.Services.OfferService)">
+            <summary>
+            construct services
+            </summary>
+            <param name="offerServices"></param>
+        </member>
+        <member name="M:Ayurveda.Web.Controllers.OffersController.OffersList">
+            <summary>
+            offer list
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Ayurveda.Web.Controllers.OrderAddressController">
+            <summary>
+            order address controller
+            </summary>
+        </member>
+        <member name="M:Ayurveda.Web.Controllers.OrderAddressController.#ctor(Services.Services.OrderAddressService)">
+            <summary>
+            construct services
+            </summary>
+            <param name="service"></param>
+        </member>
+        <member name="M:Ayurveda.Web.Controllers.OrderAddressController.AddUpdate(System.Int64)">
+            <summary>
+            get order address details for add update order
+            </summary>
+            <param name="Id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Ayurveda.Web.Controllers.OrderAddressController.AddUpdate(Shared.Models.OrderAddressModel)">
+            <summary>
+            save order address details
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Ayurveda.Web.Controllers.OrderAddressController.GetAll">
+            <summary>
+            get all orders address
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Ayurveda.Web.Controllers.OrderAddressController.Remove(System.Int64)">
+            <summary>
+            remove orders address
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Ayurveda.Web.Controllers.OrderAddressController.ViewByUser(System.String)">
+            <summary>
+            view orders address by user.
+            </summary>
+            <param name="userId"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Ayurveda.Web.Controllers.OrderController">
+            <summary>
+            manager orders
+            </summary>
+        </member>
+        <member name="M:Ayurveda.Web.Controllers.OrderController.#ctor(Services.Services.OrderService)">
+            <summary>
+            construct services
+            </summary>
+            <param name="OrderServices"></param>
+        </member>
+        <member name="M:Ayurveda.Web.Controllers.OrderController.AddUpdateOrder(Shared.Models.OrderModel)">
+            <summary>
+            save order details
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Ayurveda.Web.Controllers.OrderController.GetOrderListByUserId(System.String)">
+            <summary>
+            get order by user id
+            </summary>
+            <param name="userId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Ayurveda.Web.Controllers.OrderController.GetOrderListById(System.Int64)">
+            <summary>
+            get order details by id
+            </summary>
+            <param name="orderId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Ayurveda.Web.Controllers.OrderController.OrdersList">
+            <summary>
+            get order list
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Ayurveda.Web.Controllers.OrderController.DeleteOrder(System.Int64)">
+            <summary>
+            delete order
+            </summary>
+            <param name="OrderId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Ayurveda.Web.Controllers.OrderController.ProcessCart(System.String,System.Int64)">
+            <summary>
+            process cart 
+            </summary>
+            <param name="userId"></param>
+            <param name="addressId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Ayurveda.Web.Controllers.OrderController.UpdatePaymentStatus(System.Guid,System.Boolean)">
+            <summary>
+            update payment status
+            </summary>
+            <param name="TransactionId"></param>
+            <param name="paymentDone"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Ayurveda.Web.Controllers.OrderController.GetPaymentStatus(System.Guid)">
+            <summary>
+            get payment status
+            </summary>
+            <param name="TransactionId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Ayurveda.Web.Controllers.OrderController.GetPaymentStatus(System.String)">
+            <summary>
+            get payment status
+            </summary>
+            <param name="email"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Ayurveda.Web.Controllers.ProductCategoryController">
+            <summary>
+            product category view
+            </summary>
+        </member>
+        <member name="M:Ayurveda.Web.Controllers.ProductCategoryController.#ctor(Services.Services.CategoryService)">
+            <summary>
+            construct services
+            </summary>
+            <param name="service"></param>
+        </member>
+        <member name="M:Ayurveda.Web.Controllers.ProductCategoryController.ProductCategoryList(System.String)">
+            <summary>
+            get all product category list
+            </summary>
+            <param name="securityKey"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Ayurveda.Web.Controllers.ProductController">
+            <summary>
+            product management
+            </summary>
+        </member>
+        <member name="M:Ayurveda.Web.Controllers.ProductController.#ctor(Services.Services.ProductService,Services.Services.CategoryService)">
+            <summary>
+            construct services
+            </summary>
+            <param name="productService"></param>
+            <param name="categoryService"></param>
+        </member>
+        <member name="M:Ayurveda.Web.Controllers.ProductController.GetProductDetails(System.Int64)">
+            <summary>
+            get product details
+            </summary>
+            <param name="Id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Ayurveda.Web.Controllers.ProductController.GetProductList(System.String)">
+            <summary>
+            get product list by user id
+            </summary>
+            <param name="UserId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Ayurveda.Web.Controllers.ProductController.GetProductList(Shared.Models.ProductPagingInputModel)">
+            <summary>
+            get product list by search
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Ayurveda.Web.Controllers.ProductController.SearchItems(Shared.Models.ProductPagingInputModel)">
+            <summary>
+            serch product with paging
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Ayurveda.Web.Extensions.ApplicationServicesExtension">
+            <summary>
+            Services injection resolver
+            </summary>
+        </member>
+        <member name="M:Ayurveda.Web.Extensions.ApplicationServicesExtension.AddServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            Add services for injection
+            </summary>
+            <param name="services"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Ayurveda.Web.Extensions.DocumenationExtensions">
+            <summary>
+            Utility class to provide documentation for various types where available with the assembly
+            </summary>
+        </member>
+        <member name="M:Ayurveda.Web.Extensions.DocumenationExtensions.GetDocumentation(System.Reflection.MethodInfo)">
+            <summary>
+            Provides the documentation comments for a specific method
+            </summary>
+            <param name="methodInfo">The MethodInfo (reflection data ) of the member to find documentation for</param>
+            <returns>The XML fragment describing the method</returns>
+        </member>
+        <member name="M:Ayurveda.Web.Extensions.DocumenationExtensions.GetDocumentation(System.Reflection.MemberInfo)">
+            <summary>
+            Provides the documentation comments for a specific member
+            </summary>
+            <param name="memberInfo">The MemberInfo (reflection data) or the member to find documentation for</param>
+            <returns>The XML fragment describing the member</returns>
+        </member>
+        <member name="M:Ayurveda.Web.Extensions.DocumenationExtensions.GetSummary(System.Reflection.MemberInfo)">
+            <summary>
+            Returns the Xml documenation summary comment for this member
+            </summary>
+            <param name="memberInfo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Ayurveda.Web.Extensions.DocumenationExtensions.GetSummary(System.Reflection.MethodInfo)">
+            <summary>
+            Returns the Xml documenation summary comment for this member
+            </summary>
+            <param name="methodInfo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Ayurveda.Web.Extensions.DocumenationExtensions.GetDocumentation(System.Type)">
+            <summary>
+            Provides the documentation comments for a specific type
+            </summary>
+            <param name="type">Type to find the documentation for</param>
+            <returns>The XML fragment that describes the type</returns>
+        </member>
+        <member name="M:Ayurveda.Web.Extensions.DocumenationExtensions.GetSummary(System.Type)">
+            <summary>
+            Gets the summary portion of a type's documenation or returns an empty string if not available
+            </summary>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Ayurveda.Web.Extensions.DocumenationExtensions.XmlFromName(System.Type,System.Char,System.String)">
+            <summary>
+            Obtains the XML Element that describes a reflection element by searching the 
+            members for a member that has a name that describes the element.
+            </summary>
+            <param name="type">The type or parent type, used to fetch the assembly</param>
+            <param name="prefix">The prefix as seen in the name attribute in the documentation XML</param>
+            <param name="name">Where relevant, the full name qualifier for the element</param>
+            <returns>The member that has a name that describes the specified reflection element</returns>
+        </member>
+        <member name="F:Ayurveda.Web.Extensions.DocumenationExtensions.Cache">
+            <summary>
+            A cache used to remember Xml documentation for assemblies
+            </summary>
+        </member>
+        <member name="F:Ayurveda.Web.Extensions.DocumenationExtensions.FailCache">
+            <summary>
+            A cache used to store failure exceptions for assembly lookups
+            </summary>
+        </member>
+        <member name="M:Ayurveda.Web.Extensions.DocumenationExtensions.XmlFromAssembly(System.Reflection.Assembly)">
+            <summary>
+            Obtains the documentation file for the specified assembly
+            </summary>
+            <param name="assembly">The assembly to find the XML document for</param>
+            <returns>The XML document</returns>
+            <remarks>This version uses a cache to preserve the assemblies, so that 
+            the XML file is not loaded and parsed on every single lookup</remarks>
+        </member>
+        <member name="M:Ayurveda.Web.Extensions.DocumenationExtensions.XmlFromAssemblyNonCached(System.Reflection.Assembly)">
+            <summary>
+            Loads and parses the documentation file for the specified assembly
+            </summary>
+            <param name="assembly">The assembly to find the XML document for</param>
+            <returns>The XML document</returns>
+        </member>
+        <member name="T:Ayurveda.Web.Extensions.GlobalVariables">
+            <summary>
+            Global extention variables
+            </summary>
+        </member>
+        <member name="M:Ayurveda.Web.Extensions.GlobalVariables.GetLoggedInUserId(Microsoft.AspNetCore.Identity.UserManager{Data.Entities.Identity.User},Microsoft.AspNetCore.Http.HttpContext)">
+            <summary>
+            Get logged in user id
+            </summary>
+            <param name="userManager">User manager</param>
+            <param name="httpContext">http context</param>
+            <returns></returns>
+        </member>
+        <member name="M:Ayurveda.Web.Extensions.GlobalVariables.GetLoggedInUserName(Microsoft.AspNetCore.Identity.UserManager{Data.Entities.Identity.User},Microsoft.AspNetCore.Http.HttpContext)">
+            <summary>
+            Get logged in user name
+            </summary>
+            <param name="userManager">User manager</param>
+            <param name="httpContext">http context</param>
+            <returns></returns>
+        </member>
+        <member name="T:Ayurveda.Web.Extensions.SaveFormFileSerivce">
+            <summary>
+            Save form file extention service
+            </summary>
+        </member>
+        <member name="M:Ayurveda.Web.Extensions.SaveFormFileSerivce.#ctor(Microsoft.AspNetCore.Hosting.IWebHostEnvironment,Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            Construct services
+            </summary>
+            <param name="webHostingEnvironment"></param>
+            <param name="configuration"></param>
+        </member>
+        <member name="M:Ayurveda.Web.Extensions.SaveFormFileSerivce.SaveCategoryImage(Microsoft.AspNetCore.Http.IFormFile)">
+            <summary>
+            Save category images
+            </summary>
+            <param name="file"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Ayurveda.Web.Extensions.SaveFormFileSerivce.SaveBrandImage(Microsoft.AspNetCore.Http.IFormFile)">
+            <summary>
+            Save brand images
+            </summary>
+            <param name="file"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Ayurveda.Web.Extensions.SaveFormFileSerivce.SaveProductImage(Microsoft.AspNetCore.Http.IFormFile)">
+            <summary>
+            Save product images
+            </summary>
+            <param name="file"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Ayurveda.Web.Extensions.SaveFormFileSerivce.SaveAs(Microsoft.AspNetCore.Http.IFormFile)">
+            <summary>
+            Save file AS
+            </summary>
+            <param name="file"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Ayurveda.Web.Extensions.SaveFormFileSerivce.SaveAs(Microsoft.AspNetCore.Http.IFormFile,System.String)">
+            <summary>
+            Save file AS
+            </summary>
+            <param name="file"></param>
+            <param name="pathForSaveImage"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Ayurveda.Web.Extensions.SendOTPService">
+            <summary>
+            send otp service
+            </summary>
+        </member>
+        <member name="M:Ayurveda.Web.Extensions.SendOTPService.#ctor(Microsoft.AspNetCore.Hosting.IWebHostEnvironment,Microsoft.Extensions.Configuration.IConfiguration,Services.IServices.IManageService)">
+            <summary>
+            construct service
+            </summary>
+            <param name="webHostingEnvironment"></param>
+            <param name="configuration"></param>
+            <param name="manageService"></param>
+        </member>
+        <member name="M:Ayurveda.Web.Extensions.SendOTPService.SendPhoneOTP(System.String)">
+            <summary>
+            send OTP on phone.
+            </summary>
+            <param name="phoneNumber"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Ayurveda.Web.Extensions.SendOTPService.SendMailOTP(Data.Entities.Identity.User)">
+            <summary>
+            Send OTP on mail.
+            </summary>
+            <param name="user"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Ayurveda.Web.Extensions.SendOTPService.GetTeamplateData(System.String)">
+            <summary>
+            Get template
+            </summary>
+            <param name="templatePath"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Ayurveda.Web.Helper.ClaimsPrincipleExtension">
+            <summary>
+            claim principal extention
+            </summary>
+        </member>
+        <member name="M:Ayurveda.Web.Helper.ClaimsPrincipleExtension.RetrieveEmailFromPrincipal(System.Security.Claims.ClaimsPrincipal)">
+            <summary>
+            Get email from claim
+            </summary>
+            <param name="user"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Ayurveda.Web.Helper.MappingProfiles">
+            <summary>
+            Mapping extention
+            </summary>
+        </member>
+        <member name="M:Ayurveda.Web.Helper.MappingProfiles.#ctor">
+            <summary>
+            Mapping details
+            </summary>
+        </member>
+        <member name="T:Ayurveda.Web.Helper.CustomResolver">
+            <summary>
+            Custome resolver 
+            </summary>
+        </member>
+        <member name="M:Ayurveda.Web.Helper.CustomResolver.Resolve(System.Object,System.Object,System.Int64,System.Int64,AutoMapper.ResolutionContext)">
+            <summary>
+            Resolve custom mapping
+            </summary>
+            <param name="source"></param>
+            <param name="destination"></param>
+            <param name="sourceMember"></param>
+            <param name="destMember"></param>
+            <param name="context"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Ayurveda.Web.Helper.UserManagerExtension">
+            <summary>
+            User manager extention
+            </summary>
+        </member>
+        <member name="M:Ayurveda.Web.Helper.UserManagerExtension.FindUserByClaimsPrincipleWithAddressAsync(Microsoft.AspNetCore.Identity.UserManager{Data.Entities.Identity.User},System.Security.Claims.ClaimsPrincipal)">
+            <summary>
+            find user by claims
+            </summary>
+            <param name="input"></param>
+            <param name="user"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Ayurveda.Web.Helper.UserManagerExtension.FindByEmailFromClaimsPrinciple(Microsoft.AspNetCore.Identity.UserManager{Data.Entities.Identity.User},System.Security.Claims.ClaimsPrincipal)">
+            <summary>
+            find user from claims
+            </summary>
+            <param name="input"></param>
+            <param name="user"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Ayurveda.Web.Models.Account.LoginViewModel">
+            <summary>
+            Login view model
+            </summary>
+        </member>
+        <member name="P:Ayurveda.Web.Models.Account.LoginViewModel.Email">
+            <summary>
+            email for user
+            </summary>
+        </member>
+        <member name="P:Ayurveda.Web.Models.Account.LoginViewModel.Password">
+            <summary>
+            user password
+            </summary>
+        </member>
+        <member name="P:Ayurveda.Web.Models.Account.LoginViewModel.RememberMe">
+            <summary>
+            is user want to remenber by browser
+            </summary>
+        </member>
+        <member name="P:Ayurveda.Web.Models.Account.LoginViewModel.ReturnUrl">
+            <summary>
+            return url
+            </summary>
+        </member>
+        <member name="P:Ayurveda.Web.Models.Account.LoginViewModel.ExternalLogins">
+            <summary>
+            External login list
+            </summary>
+        </member>
+        <member name="T:Ayurveda.Web.Models.Account.RegisterViewModel">
+            <summary>
+            user registration model
+            </summary>
+        </member>
+        <member name="P:Ayurveda.Web.Models.Account.RegisterViewModel.Email">
+            <summary>
+            email
+            </summary>
+        </member>
+        <member name="P:Ayurveda.Web.Models.Account.RegisterViewModel.Name">
+            <summary>
+            name
+            </summary>
+        </member>
+        <member name="P:Ayurveda.Web.Models.Account.RegisterViewModel.UserName">
+            <summary>
+            user name
+            </summary>
+        </member>
+        <member name="P:Ayurveda.Web.Models.Account.RegisterViewModel.Password">
+            <summary>
+            password
+            </summary>
+        </member>
+        <member name="P:Ayurveda.Web.Models.Account.RegisterViewModel.ConfirmPassword">
+            <summary>
+            confirm password
+            </summary>
+        </member>
+        <member name="T:Ayurveda.Web.Program">
+            <summary>
+            Web app program
+            </summary>
+        </member>
+        <member name="M:Ayurveda.Web.Program.Main(System.String[])">
+            <summary>
+            Main program
+            </summary>
+            <param name="args"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Ayurveda.Web.Program.CreateHostBuilder(System.String[])">
+            <summary>
+            Create host builder
+            </summary>
+            <param name="args"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Ayurveda.Web.Startup">
+            <summary>
+            web app startup program
+            </summary>
+        </member>
+        <member name="P:Ayurveda.Web.Startup.Configuration">
+            <summary>
+            web configuration
+            </summary>
+        </member>
+        <member name="M:Ayurveda.Web.Startup.#ctor(Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            web startup
+            </summary>
+            <param name="configuration"></param>
+        </member>
+        <member name="M:Ayurveda.Web.Startup.ConfigureServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            web service configuration
+            </summary>
+            <param name="services"></param>
+        </member>
+        <member name="M:Ayurveda.Web.Startup.Configure(Microsoft.AspNetCore.Builder.IApplicationBuilder,Microsoft.AspNetCore.Hosting.IWebHostEnvironment)">
+            <summary>
+            web host configuration
+            </summary>
+            <param name="app"></param>
+            <param name="env"></param>
+        </member>
+    </members>
+</doc>

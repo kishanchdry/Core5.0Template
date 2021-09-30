@@ -1,0 +1,26 @@
+
+@inject ISignInService SignInManager
+
+
+    <ul class="partialLogin navbar-nav main-menu">
+        @if (SignInManager.IsSignedIn(User))
+        {
+            <li class="nav-item first">
+                <a class="nav-link text-dark" href="@Url.Action("UserView", "Manage", new { area = "" })" title="Manage">Hello @User.Identity.Name!</a>
+            </li>
+            <li class="nav-item second">
+                <form class="form-inline" action="@Url.Action("Logout", "Account", new { area = "" })">
+                    <button type="submit" class="nav-link btn btn-link text-dark">Logout</button>
+                </form>
+            </li>
+        }
+        else
+        {
+            <li class="nav-item first">
+                <a class="nav-link text-dark" href="@Url.Action("Register", "Account")">Register</a>
+            </li>
+            <li class="nav-item second">
+                <a class="nav-link text-dark" href="@Url.Action("Login", "Account")">Login</a>
+            </li>
+        }
+    </ul>

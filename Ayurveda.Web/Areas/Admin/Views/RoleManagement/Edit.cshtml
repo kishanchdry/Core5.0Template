@@ -1,0 +1,134 @@
+﻿@model Role
+@{
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+    List<Role> AllRoles = ViewBag.Roles;
+    ViewBag.Title = "Role Management";
+
+    var roleActions = Model.RoleAtions ?? new List<RoleAction>();
+}
+
+<h4>Edit Role permissions</h4>
+
+<input type="hidden" asp-for="Id" />
+
+@{
+    List<ClassDetailsModel> classes = (List<ClassDetailsModel>)ViewBag.Clasess;
+
+    foreach (var item in classes)
+    {
+        <div class="row Classes">
+            <div class="col-lg-2">
+                <label class="custom checkbox path">
+                    <input type="checkbox" data-val="@item?.Name" @(roleActions.Any(e => e.Controller == item.Name) ? "checked" : "") />
+                    <svg viewBox="0 0 21 21">
+                        <path d="M5,10.75 L8.5,14.25 L19.4,2.3 C18.8333333,1.43333333 18.0333333,1 17,1 L4,1 C2.35,1 1,2.35 1,4 L1,17 C1,18.65 2.35,20 4,20 L17,20 C18.65,20 20,18.65 20,17 L20,7.99769186"></path>
+                    </svg>
+                </label>
+                <span>
+                    @item?.Name
+                </span>
+            </div>
+            <div class="col-lg-10">
+                @foreach (var method in item?.Methods)
+                {
+                    <span class="ActionName">
+                        <label class="custom checkbox path">
+                            <input type="checkbox" data-val="@string.Format("{0}/{1}", item?.Name, method?.Name)" @(roleActions.Any(e => e.Controller == item.Name || e.Action == string.Format("{0}/{1}", item?.Name, method?.Name)) ? "checked" : "") />
+                            <svg viewBox="0 0 21 21">
+                                <path d="M5,10.75 L8.5,14.25 L19.4,2.3 C18.8333333,1.43333333 18.0333333,1 17,1 L4,1 C2.35,1 1,2.35 1,4 L1,17 C1,18.65 2.35,20 4,20 L17,20 C18.65,20 20,18.65 20,17 L20,7.99769186"></path>
+                            </svg>
+                        </label>
+
+                        <span>@method?.Name </span>
+                        <span class="LargeTextSpanClass">
+                            Params: @method?.ParamsAsString
+                            Description: @method.Description
+                        </span>
+                    </span>
+                }
+            </div>
+        </div>
+    }
+
+    <input type="button" value="Save" onclick="SaveRoleDetails();" class="btn btn-primary" />
+}
+
+@section Scripts {
+    <script>
+
+        $(function () {
+            $(".Classes .ActionName input[type='checkbox']:checked").each(function () { UpdateSelectionForActions($(this)); });
+            $(".Classes>div>.checkbox>input[type='checkbox']:checked").each(function () { UpdateSelectionForClasses($(this)); });
+        });
+
+        $(".Classes .ActionName input[type='checkbox']").click(function () {
+            var _this = $(this);
+
+            UpdateSelectionForActions(_this);
+
+            var isAllChecked = _this.closest("div").find("input[type='checkbox']").filter(function () { return $(this).is(":checked") == false }).length <= 0;
+
+            var SelectedClass = _this.closest(".Classes").find("div>.checkbox>input[type='checkbox']")
+            SelectedClass.prop("checked", isAllChecked);
+            UpdateSelectionForClasses(SelectedClass);
+        });
+
+        function UpdateSelectionForActions(_this) {
+            if (_this.is(":checked")) {
+                _this.closest(".ActionName").addClass("Selected");
+            }
+            else {
+                _this.closest(".ActionName").removeClass("Selected");
+            }
+        }
+
+        $(".Classes>div>.checkbox>input[type='checkbox']").click(function () {
+
+            var _this = $(this);
+            _this.closest(".Classes").find(".ActionName input[type='checkbox']").prop("checked", $(this).is(":checked"));
+            UpdateSelectionForClasses(_this);
+        });
+
+        function UpdateSelectionForClasses(_this) {
+
+            if (_this.is(":checked")) {
+                _this.closest(".Classes").addClass("Selected");
+                _this.closest(".Classes").find(".ActionName").addClass("Selected");
+            }
+            else {
+                _this.closest(".Classes").removeClass("Selected");
+                _this.closest(".Classes").find(".ActionName input[type='checkbox']:not(:checked)").closest(".ActionName").removeClass("Selected");
+            }
+        }
+
+
+        function SaveRoleDetails() {
+
+            var controllerNames = [];
+            var actionNames = [];
+
+            $(".Classes>div>.checkbox>input[type='checkbox']:checked").each(function () {
+                controllerNames.push($(this).attr("data-val"));
+            });
+
+
+            $(".Classes>div>.checkbox>input[type='checkbox']:not(:checked)").closest(".Classes").find(".ActionName input[type='checkbox']:checked").each(function () {
+                actionNames.push($(this).attr("data-val"));
+            });
+
+            $.ajax({
+                type: "Post",
+                url: "@Url.Action("Save", "RoleManagement", new { area = "Admin"})",
+                data: {
+                    Id: $("#Id").val(),
+                    controllerNames: controllerNames,
+                    actionNames: actionNames
+                },
+                success: function (response) {
+                    window.location = '@Url.Action("Index", "RoleManagement")';
+                }
+            });
+        }
+
+    </script>
+}

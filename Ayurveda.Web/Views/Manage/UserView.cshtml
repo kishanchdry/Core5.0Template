@@ -1,0 +1,148 @@
+﻿@model User
+
+@{ 
+    ViewBag.Title = "User Info";
+}
+
+<div class="col-lg-12">
+    <div class="row">
+        <span class="col-md-4 Bold title">Full Name: </span>
+        <span class="col-md-8 detail value">@string.Format("{0} {1}", Model?.FirstName, Model?.LastName)</span>
+    </div>
+
+    <div class="row">
+        <span class="col-md-4 Bold title">Email: </span>
+        <span class="col-md-8 detail value">
+            @string.Format("{0}", Model?.Email)<span>
+                @*@if (Model?.EmailConfirmed == false)*@
+                @{<a href="#" class="verify-email verify" id="@Model?.Id">Verify</a>}
+            </span>
+        </span>
+    </div>
+
+    <div class="row">
+        <span class="col-md-4 Bold title">User Name: </span>
+        <span class="col-md-8 detail value">@string.Format("{0}", Model?.UserName)</span>
+    </div>
+
+
+    <div class="row">
+        <span class="col-md-4 Bold  title">Phone Number: </span>
+        <span class="col-md-8 detail value">
+            @string.Format("{0}", Model?.PhoneNumber)
+            <span>
+                @if (Model?.PhoneNumberConfirmed == false)
+                {<a href="#" class="verify-mobile verify" id="@Model?.Id">Verify</a>}
+            </span>
+        </span>
+    </div>
+
+    <div class="row">
+        <span class="col-md-4 Bold title">Active: </span>
+        <span class="col-md-8 detail value">
+            @if (Model?.IsActive == true)
+            {
+                <a href="javascript:void(0)" title="Deactivate" id="@Model?.Id" class="btn btn-sm btn-default change-status" style="padding:5px 5px 0px 7px; background-color:#cececee6;">
+                    <i class="fa fa-toggle-on" aria-hidden="true" style="font-size:20px; color:green;"></i>
+                </a>
+            }
+            else
+            {
+                <a href="javascript:void(0)" title="Activate" id="@Model?.Id" class="btn btn-sm btn-default change-status" style="padding:5px 5px 0px 7px;  background-color:#cececee6;">
+                    <i class="fa fa-toggle-off" aria-hidden="true" style="font-size:20px; color:red;"></i>
+                </a>
+            }
+        </span>
+    </div>
+</div>
+
+
+<div class="modal fade" id="VerifyOTP" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Brand detail</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="div-product-Brand-detail">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section Scripts {
+    <script>
+
+        $(document).ready(function () {
+
+            $(document).on("click", ".verify", function () {
+
+                var _this = this;
+
+                var actionName = "VerifyEmail";
+                if ($(_this).hasClass('verify-mobile')) {
+                    actionName = "VerifyPhoneNumber";
+                }
+                var Id = $(_this).attr("id");
+                $.ajax({
+                    type: "GET",
+                    url: "@Url.Action("", "Manage")/" + actionName,
+                    data: {
+                        "id": Id
+                    },
+                    success: function (response) {
+                        $('#VerifyOTP').find(".modal-body").html(response);
+                        $('#VerifyOTP').find(".modal-title").text("Verify Mobile");
+                        $('#VerifyOTP').modal("show");
+                    },
+                    failure: function (response) {
+                        alert(response.responseText);
+                    },
+                    error: function (response) {
+                        alert(response.responseText);
+                    }
+                });
+            });
+
+            $(document).on("click", ".change-status", function () {
+                var id = $(this).attr("id");
+                swal({
+                    title: "Are you sure?",
+                    text: "You want to change status!",
+                    type: "warning",
+                    showCancelButton: true,
+                    confirmButtonColor: "#DD6B55",
+                    confirmButtonText: "Yes",
+                    cancelButtonText: "No",
+                    closeOnConfirm: true,
+                    closeOnCancel: true
+                }, function (isConfirm) {
+                    if (isConfirm) {
+                        $.ajax({
+                            type: "POST",
+                            url: "@Url.Action("ChangeStatus", "Manage", new { area = ""})",
+                            data: { Id: id },
+                            success: function (result) {
+                                if (result && result.flag) {
+                                    swal("Success", result.message, "success");
+                                    App.Refresh();
+                                }
+                            }
+                        });
+                    }
+                });
+            });
+        });
+
+
+
+    </script>
+}

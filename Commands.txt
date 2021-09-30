@@ -1,0 +1,73 @@
+1. New project commands for 
+Web MVC : dotnet new mvc
+Class Library : dotnet new classlib
+
+2. Create Solution for bindup projects
+dotnet new sln
+
+3. Add projects in Solution
+dotnet sln SolutionName.sln add .\FolderName\ProjectName.csproj
+
+4. AddRefrence between projects
+dotnet add .\FolderName\SourceProjectName.csproj reference .\FolderName\RefrenceProjectName.csproj
+
+5. Restore Project.
+dotnet restore
+
+6. Buld project.
+dotnet build
+
+7. 
+    A. Install required packages for Data module for Sql.
+        dotnet add package Microsoft.EntityFrameworkCore --version 2.2.0
+        dotnet add package Microsoft.EntityFrameworkCore.Design --version 2.2.0
+        dotnet add package Microsoft.EntityFrameworkCore.SqlServer --version 2.2.0
+        dotnet add package Microsoft.EntityFrameworkCore.Tools --version 2.2.0
+    
+    B. Install required packages for Data module for MySql.
+        dotnet add package MySql.Data.EntityFrameworkCore.Design --version 8.0.16
+        dotnet add package MySql.Data.EntityFrameworkCore --version 8.0.6
+        dotnet add package Microsoft.EntityFrameworkCore.Design
+
+        --------------------------
+        In My sql we should have to create migration table manually command is writedown below
+        /*
+        CREATE TABLE `__EFMigrationsHistory` ( `MigrationId` nvarchar(150) NOT NULL, `ProductVersion` nvarchar(32) NOT NULL, PRIMARY KEY (`MigrationId`) );
+        */
+
+8. Add migration command 
+dotnet ef migrations add migration_Name -s startup_project_name
+dotnet ef migrations add NewMigration --project MyApp.Migrations
+
+
+dotnet ef migrations add AddBrandTbl --project .\Data\Data.csproj -s .\Ayurveda.Web\Ayurveda.Web.csproj --context DataContext
+
+dotnet ef migrations add migration_Name --project .\Data\Data.csproj -s .\Ayurveda.Web\Ayurveda.Web.csproj --context AppIdentityContext
+
+dotnet ef database update -s .\Ayurveda.Web\Ayurveda.Web.csproj --context AppIdentityContext
+
+dotnet ef database update -s .\Ayurveda.Web\Ayurveda.Web.csproj --context DataContext
+
+9. Update migration command
+dotnet ef database update -s startup_project_name
+  
+
+10. Required software for host a dotnet core website
+https://aka.ms/dotnetcore-2-windowshosting
+
+11. Publish content for host
+dotnet publish
+--copy content from bin/debug/netcoreapp2.2/publish to hosted path
+
+
+
+
+
+
+-----------------------------------------------------------
+Common issues
+
+1. Controller not hitted from web because of APICOntrollor attribute
+
+ex = {"Introducing FOREIGN KEY constraint 'FK_ProductCategories_ProductCategories_ParentCategoryId' on table 'ProductCategories'
+ may cause cycles or multiple cascade paths. Specify ON DELETE NO ACTION or ON UPDATE NO ACTION, or modify other FOREIGN KEY constrain...

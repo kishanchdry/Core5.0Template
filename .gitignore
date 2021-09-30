@@ -1,0 +1,22 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs/Ayurveda.Web
+/Ayurveda.Web/bin/Debug/netcoreapp3.1
+/Ayurveda.Web/obj
+/Communication/obj
+/Communication/bin/Debug/netcoreapp3.1
+/Data/bin/Debug/netcoreapp3.1
+/Data/obj
+/node_modules
+/Services/bin/Debug/netcoreapp3.1
+/Services/obj
+/Shared/bin/Debug/netcoreapp3.1
+/Shared/obj
+/Ayurveda.Web/wwwroot/Uploads
+/Ayurveda.Web/bin/Release/netcoreapp3.1
+/Communication/bin/Release/netcoreapp3.1
+/Data/bin/Release/netcoreapp3.1
+/Services/bin/Release/netcoreapp3.1
+/Shared/bin/Release/netcoreapp3.1

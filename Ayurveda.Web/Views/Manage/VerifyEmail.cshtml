@@ -1,0 +1,92 @@
+﻿@model User
+
+@{
+    Layout = null;
+}
+
+<div class="row">
+    <div class="col-lg-12">
+        <span class="col-md-12 Bold title">Please Enter you otp: </span>
+        <span class="col-md-4 detail value"><input name="OTP" type="text" /></span>
+        <span class="col-md-8 detail value">
+            <span><input value="verify" class="btn-verify" type="button" id="@Model?.Id" /></span>
+            <span><button class="resendOTP" disabled id="@Model?.Id">Resend <span class="timer" max="90" data-text="90"></span></button> </span>
+        </span>
+    </div>
+</div>
+
+<script>
+
+    $(document).ready(function () {
+        debugger;
+        var timer = $(".timer");
+        
+        var reverseTimerClock = setInterval(ReverseTimer, 1000);
+
+        function ReverseTimer() {
+            var revTimerVal = parseInt(timer.attr('data-text')) - 1;
+            timer.text("in " + revTimerVal)
+            timer.attr('data-text', revTimerVal)
+            if (revTimerVal <= 0) {
+
+                $(".resendOTP").prop("disabled", false);
+
+                clearInterval(reverseTimerClock);
+            }
+        }
+
+
+        $(document).on("click", ".resendOTP", function () {
+
+            var _this = this;
+            var Id = $(_this).attr("id");
+            $.ajax({
+                type: "GET",
+                url: "@Url.Action("SendMailOTP", "Manage")",
+                data: {
+                    "id": Id
+                },
+                success: function (response) {
+                    timer.attr('data-text', 90)
+                    $(".resendOTP").prop("disabled", true);
+                    reverseTimerClock = setInterval(ReverseTimer, 1000);
+                },
+                failure: function (response) {
+                    alert(response.responseText);
+                },
+                error: function (response) {
+                    alert(response.responseText);
+                }
+            });
+        });
+
+        $(document).on("click", ".btn-verify", function () {
+
+            var _this = this;
+            var Id = $(_this).attr("id");
+            var otp = $("[name='OTP']").val();
+
+            $.ajax({
+                type: "GET",
+                url: "@Url.Action("VerifyOTP", "Manage")",
+                data: {
+                    "id": Id,
+                    "OTP": otp,
+                    "isPhoneOTP": false
+                },
+                success: function (response) {
+                    $('#VerifyOTP').modal("hide");
+
+                    swal("Success", "Mail Verified Successfully", "success");
+                },
+                failure: function (response) {
+                    alert(response.responseText);
+                },
+                error: function (response) {
+                    alert(response.responseText);
+                }
+            });
+        });
+    });
+
+</script>

@@ -20,3 +20,12 @@
 /Data/bin/Release/netcoreapp3.1
 /Services/bin/Release/netcoreapp3.1
 /Shared/bin/Release/netcoreapp3.1
+/Ayurveda.Web/bin/Debug/net5.0
+/Ayurveda.Web/Properties/PublishProfiles
+/Ayurveda.Web/Ayurveda.Web.csproj.user
+/Communication/bin/Debug/net5.0
+/Communication/bin/Debug/netcoreapp2.2
+/Data/bin/Debug
+/Services/bin/Debug
+/Shared/bin/Debug
+*.user

@@ -556,6 +556,7 @@ namespace Services.Services.Identity
             }
             catch (Exception ex)
             {
+                ex.Log();
                 throw ex;
             }
         }

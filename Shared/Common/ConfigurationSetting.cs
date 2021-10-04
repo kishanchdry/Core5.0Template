@@ -29,11 +29,11 @@ namespace Shared.Common
         public const string Guest = "Guest";
         public const bool LockoutOnFailure = true;
 
-        public const string ComanyName = "Ayurveda";
+        public const string ComanyName = "Template";
         public const string AdminWelcomMessage = "You can manage web settings and products here.";
         public const string AboutUs = "About US.";
         public const string ContactUs = "Contact US.";
-        public const string VerifyEmailByOTP = "Ayurveda Verification OTP";
+        public const string VerifyEmailByOTP = "Template Verification OTP";
 
 
         public const string CacheRoleActionsKey = "RoleActions";

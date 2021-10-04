@@ -29,3 +29,5 @@
 /Services/bin/Debug
 /Shared/bin/Debug
 *.user
+/.vs/Web/v16
+/API/obj

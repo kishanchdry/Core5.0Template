@@ -25,13 +25,13 @@ using AutoMapper;
 using Microsoft.OpenApi.Models;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
-using Web.Authorization.JWT;
 using Shared.Common.Enums;
 using Shared.Models.Base;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
 using Shared.Models.API;
 using Shared.Common;
+using Microsoft.AspNetCore.DataProtection;
 
 namespace Web
 {
@@ -70,48 +70,7 @@ namespace Web
             services.Configure<JwtTokenSettings>(Configuration.GetSection("JwtTokenSettings"));//for jwt token
             services.Configure<ConfigurationKeys>(Configuration.GetSection("ConfigurationKeys"));//for configuration keys
 
-            #region JWT token authentication
-            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
-               .AddJwtBearer(options =>
-               {
-                   options.TokenValidationParameters = new TokenValidationParameters()
-                   {
-                       ValidateIssuer = true,
-                       ValidateAudience = true,
-                       ValidateIssuerSigningKey = true,
-                       ValidateLifetime = true,
-                       ValidIssuer = Configuration.GetValue<string>("JwtTokenSettings:IsUser"),
-                       ValidAudience = Configuration.GetValue<string>("JwtTokenSettings:Audience"),
-                       IssuerSigningKey = JwtSecurityKey.Create(Configuration.GetValue<string>("JwtTokenSettings:Secrete")),
-
-                       //RequireExpirationTime = true,
-                       //ClockSkew = TimeSpan.Zero
-                   };
-
-
-                   options.Events = new JwtBearerEvents
-                   {
-                       OnAuthenticationFailed = context =>
-                       {
-                           context.NoResult();
-                           context.Response.StatusCode = ResponseCode.Unauthorized;
-                           context.Response.ContentType = "application/json";
-                           context.Response.WriteAsync(Newtonsoft.Json.JsonConvert.SerializeObject(
-                               new ApiResponses<string> { FailureMsg = ResponseStatus.UnauthorizedMessage, ValidationErrors = new List<string>(), ResponseCode = (short)ResponseCode.Unauthorized, Data = null }
-
-                           , new JsonSerializerSettings
-                           {
-                               ContractResolver = new CamelCasePropertyNamesContractResolver()
-                           })).Wait();
-                           return Task.CompletedTask;
-                       },
-                       OnTokenValidated = context =>
-                       {
-                           return Task.CompletedTask;
-                       }
-                   };
-               });
-            #endregion
+         
 
             #region Contexes
             services.AddDbContext<DataContext>(config =>
@@ -123,6 +82,9 @@ namespace Web
             {
                 config.UseSqlServer(Configuration.GetConnectionString("IdentityConection"));
             });
+
+            services.AddDataProtection().PersistKeysToDbContext<AppIdentityContext>().SetApplicationName("App");
+
             #endregion
 
             #region Identity
@@ -245,46 +207,7 @@ namespace Web
 #endif 
             #endregion
 
-            #region Swagger
-            //swagger integration
-            services.AddSwaggerGen(c =>
-            {
-                c.SwaggerDoc("v1", new OpenApiInfo
-                {
-                    Version = "v1",
-                    Title = "Apna Fram API",
-                    Description = "The objective of this API is to develop an effective mobile app for customers get grocery direct from farm.",
-                });
-
-                c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
-                {
-                    Description = "JWT Authorization header using the Bearer scheme. \r\n\r\n Enter 'Bearer' [space] and then your token in the text input below.\r\n\r\nExample: \"Bearer 12345abcdef\"",
-                    Name = "Authorization",
-                    In = ParameterLocation.Header,
-                    Type = SecuritySchemeType.ApiKey,
-                    Scheme = "Bearer"
-                });
-
-                c.AddSecurityRequirement(new OpenApiSecurityRequirement()
-                {
-                    {
-                        new OpenApiSecurityScheme
-                        {
-                            Reference = new OpenApiReference
-                            {
-                                Type = ReferenceType.SecurityScheme,
-                                Id = "Bearer"
-                            },
-                            Scheme = "oauth2",
-                            Name = "Bearer",
-                            In = ParameterLocation.Header,
-                        },
-                        new List<string>()
-                    }
-                });
-            });
-
-            #endregion
+   
 
         }
 
@@ -337,17 +260,7 @@ namespace Web
 
             app.UseAuthorization();
 
-            #region Swagger UI
-            // Enable middleware to serve generated Swagger as a JSON endpoint.
-            app.UseSwagger();
-
-            // Enable middleware to serve swagger-ui (HTML, JS, CSS, etc.),
-            // specifying the Swagger JSON endpoint.
-            app.UseSwaggerUI(c =>
-            {
-                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Apna Farm");
-            });
-            #endregion
+           
 
             #region Routing
             app.UseEndpoints(endpoints =>
@@ -365,11 +278,7 @@ namespace Web
                             "admin",
                             "{area=admin}/{controller=Home}/{action=Index}/{id?}");
 
-                    //redirect api part to the swagger
-                    endpoints.MapGet("API", async context =>
-                        {
-                            context.Response.Redirect("/swagger/");
-                        });
+                    
                 });
             #endregion
         }

@@ -153,180 +153,6 @@
             <param name="roleIds"></param>
             <returns></returns>
         </member>
-        <member name="T:Web.Areas.API.Controllers.Base.BaseAPIController">
-            <summary>
-            Base api controller for authorize the user
-            </summary>
-        </member>
-        <member name="M:Web.Areas.API.Controllers.Base.BaseAPIController.OnActionExecutionAsync(Microsoft.AspNetCore.Mvc.Filters.ActionExecutingContext,Microsoft.AspNetCore.Mvc.Filters.ActionExecutionDelegate)">
-            <summary>
-            base acuthorization
-            </summary>
-            <param name="context"></param>
-            <param name="next"></param>
-            <returns></returns>
-        </member>
-        <member name="P:Web.Areas.API.Controllers.Base.BaseAPIController.UserId">
-            <summary>
-            UserID
-            </summary>
-        </member>
-        <member name="P:Web.Areas.API.Controllers.Base.BaseAPIController.UserRole">
-            <summary>
-            UserRole
-            </summary>
-        </member>
-        <member name="P:Web.Areas.API.Controllers.Base.BaseAPIController.AdminUserId">
-            <summary>
-            set Admin user Id
-            </summary>
-        </member>
-        <member name="P:Web.Areas.API.Controllers.Base.BaseAPIController.Device">
-            <summary>
-            device
-            </summary>
-        </member>
-        <member name="P:Web.Areas.API.Controllers.Base.BaseAPIController.DeviceType">
-            <summary>
-            device type
-            </summary>
-        </member>
-        <member name="P:Web.Areas.API.Controllers.Base.BaseAPIController.Offset">
-            <summary>
-            device time offset
-            </summary>
-        </member>
-        <member name="T:Web.Areas.API.Controllers.NearestController">
-            <summary>
-            Get nearest store user and other available services
-            </summary>
-        </member>
-        <member name="M:Web.Areas.API.Controllers.NearestController.#ctor(Microsoft.Extensions.Options.IOptions{Shared.Models.API.JwtTokenSettings},Services.IServices.Identity.IUserService,Communication.Mail.EmailFunctions)">
-            <summary>
-            Initialized services
-            </summary>
-            <param name="jwtOptions"></param>
-            <param name="userservice"></param>
-            <param name="emailFunctions"></param>
-        </member>
-        <member name="M:Web.Areas.API.Controllers.NearestController.GetAllAdminUsers">
-            <summary>
-            Get all admin users
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:Web.Areas.API.Controllers.NearestController.GetAllManagerUsers">
-            <summary>
-            Get all manager users
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:Web.Areas.API.Controllers.NearestController.GetAllNormalUsers">
-            <summary>
-            Get all normal users
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:Web.Areas.API.Controllers.NearestController.GetAllGuestUsers">
-            <summary>
-            Get all guest users
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:Web.Areas.API.Controllers.NearestController.TestEmail">
-            <summary>
-            Get all guest users
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="T:Web.Areas.API.Controllers.UserAccountController">
-            <summary>
-            User account controller
-            This controller will contains all method related to user login,signup,change password.
-            </summary>
-        </member>
-        <member name="M:Web.Areas.API.Controllers.UserAccountController.#ctor(Microsoft.Extensions.Options.IOptions{Shared.Models.API.JwtTokenSettings},Services.IServices.Identity.ISignInService,Services.IServices.Identity.IUserService,Communication.Mail.EmailFunctions)">
-            <summary>
-            Initialize connstructor
-            </summary>
-            <param name="jwtOptions"></param>
-            <param name="signInService"></param>
-            <param name="userservice"></param>
-            <param name="emailFunctions"></param>
-        </member>
-        <member name="M:Web.Areas.API.Controllers.UserAccountController.Login(Shared.Models.API.UserLoginViewModel)">
-            <summary>
-            Login user from app
-            </summary>
-            <param name="request"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Web.Areas.API.Controllers.UserAccountController.SignUp(Shared.Models.API.UserSignUpModel)">
-            <summary>
-            Signup a new user
-            </summary>
-            <param name="request"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Web.Areas.API.Controllers.UserAccountController.Logout">
-            <summary>
-            log out the user
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:Web.Areas.API.Controllers.UserAccountController.RefreshToken">
-            <summary>
-            refresh token
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:Web.Areas.API.Controllers.UserAccountController.ChangePassword(Shared.Models.API.ChangePasswordModel)">
-            <summary>
-            Change Password
-            </summary>
-            <param name="model"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Web.Areas.API.Controllers.UserAccountController.UserStatus">
-            <summary>
-            update user status
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:Web.Areas.API.Controllers.UserAccountController.ForgotPassword(Shared.Models.API.ForgotPassword)">
-            <summary>
-            Forget user password
-            </summary>
-            <param name="request"></param>
-            <returns></returns>
-        </member>
-        <member name="T:Web.Authorization.JWT.JwtSecurityKey">
-            <summary>
-            jwt token security key
-            </summary>
-        </member>
-        <member name="M:Web.Authorization.JWT.JwtSecurityKey.Create(System.String)">
-            <summary>
-            Create symmetric key
-            </summary>
-            <param name="secrete"></param>
-            <returns></returns>
-        </member>
-        <member name="T:Web.Authorization.JWT.JwtToken">
-            <summary>
-            JWT token
-            </summary>
-        </member>
-        <member name="P:Web.Authorization.JWT.JwtToken.ValidTo">
-            <summary>
-            valid to
-            </summary>
-        </member>
-        <member name="P:Web.Authorization.JWT.JwtToken.Value">
-            <summary>
-            jwt token value
-            </summary>
-        </member>
         <member name="T:Web.Authorization.Policies.AuthorizationPolicyBuilderExtensions">
             <summary>
             Authorization builder
@@ -419,12 +245,6 @@
             <param name="userManager"></param>
             <param name="signInManager"></param>
         </member>
-        <member name="M:Web.Controllers.Base.AccountController.Error">
-            <summary>
-            Error page
-            </summary>
-            <returns></returns>
-        </member>
         <member name="M:Web.Controllers.Base.AccountController.Login(System.String)">
             <summary>
             Get Login user
@@ -458,6 +278,12 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="M:Web.Controllers.Base.AccountController.Error">
+            <summary>
+            Error page
+            </summary>
+            <returns></returns>
+        </member>
         <member name="M:Web.Controllers.Base.AccountController.AccessDenied">
             <summary>
             Access denies
@@ -478,6 +304,39 @@
             </summary>
             <param name="returnUrl"></param>
             <param name="remoteError"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Web.Controllers.Base.AccountController.ResetPassword(System.String,System.String)">
+            <summary>
+            Reset Password
+            </summary>
+            <param name="token"></param>
+            <param name="email"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Web.Controllers.Base.AccountController.ResetPassword(Shared.Models.API.ResetPasswordModel)">
+            <summary>
+            Reset password if forgot
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Web.Controllers.Base.AccountController.TermsAndCondition">
+            <summary>
+            Site Term and condition
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Web.Controllers.Base.AccountController.PrivacyPolicy">
+            <summary>
+            site privacy policy
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Web.Controllers.Base.AccountController.Support">
+            <summary>
+            Site support page
+            </summary>
             <returns></returns>
         </member>
         <member name="T:Web.Controllers.Base.ErrorController">
@@ -949,94 +808,6 @@
             </summary>
             <param name="app"></param>
             <param name="env"></param>
-        </member>
-        <member name="T:PlantM.Web.Common.AuthorizeAPI">
-            <summary>
-            Authorize an api call
-            </summary>
-        </member>
-        <member name="M:PlantM.Web.Common.AuthorizeAPI.#ctor(Services.IServices.Identity.IUserService)">
-            <summary>
-            initializa api authorization params
-            </summary>
-            <param name="userService"></param>
-        </member>
-        <member name="M:PlantM.Web.Common.AuthorizeAPI.OnActionExecuting(Microsoft.AspNetCore.Mvc.Filters.ActionExecutingContext)">
-            <inheritdoc />
-            <summary>
-            On request comes check for valid request
-            </summary>
-            <param name="actionContext"></param>
-        </member>
-        <member name="T:PlantM.Web.Common.JwtTokenBuilder">
-            <summary>
-            JWT token builder
-            </summary>
-        </member>
-        <member name="M:PlantM.Web.Common.JwtTokenBuilder.AddSecurityKey(Microsoft.IdentityModel.Tokens.SecurityKey)">
-            <summary>
-            add jwt sqcurity key
-            </summary>
-            <param name="key"></param>
-            <returns></returns>
-        </member>
-        <member name="M:PlantM.Web.Common.JwtTokenBuilder.AddSubject(System.String)">
-            <summary>
-            add subject
-            </summary>
-            <param name="subject"></param>
-            <returns></returns>
-        </member>
-        <member name="M:PlantM.Web.Common.JwtTokenBuilder.AddIsUser(System.String)">
-            <summary>
-            add user 
-            </summary>
-            <param name="isUser"></param>
-            <returns></returns>
-        </member>
-        <member name="M:PlantM.Web.Common.JwtTokenBuilder.AddAudience(System.String)">
-            <summary>
-            add audience
-            </summary>
-            <param name="audience"></param>
-            <returns></returns>
-        </member>
-        <member name="M:PlantM.Web.Common.JwtTokenBuilder.AddClaim(System.String,System.String)">
-            <summary>
-            add claims
-            </summary>
-            <param name="type"></param>
-            <param name="value"></param>
-            <returns></returns>
-        </member>
-        <member name="M:PlantM.Web.Common.JwtTokenBuilder.AddClaim(System.Collections.Generic.Dictionary{System.String,System.String})">
-            <summary>
-            add claims
-            </summary>
-            <param name="claims"></param>
-            <returns></returns>
-        </member>
-        <member name="M:PlantM.Web.Common.JwtTokenBuilder.AddExpiry(System.Int32)">
-            <summary>
-            add expiry
-            </summary>
-            <param name="expiryInMinutes"></param>
-            <returns></returns>
-        </member>
-        <member name="M:PlantM.Web.Common.JwtTokenBuilder.Build">
-            <summary>
-            build token
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:PlantM.Web.Common.JwtTokenBuilder.GetToken(Shared.Models.API.JwtTokenSettings,System.String,System.String)">
-            <summary>
-            Get jwt token after login success
-            </summary>
-            <param name="jwtTokenSettings"></param>
-            <param name="UserId"></param>
-            <param name="UserRole"></param>
-            <returns>JWT token</returns>
         </member>
     </members>
 </doc>

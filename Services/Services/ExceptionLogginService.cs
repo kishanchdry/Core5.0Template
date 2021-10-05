@@ -1,6 +1,8 @@
 ﻿using AutoMapper;
 using Data.Entities;
+using Data.IRepository;
 using Data.Repository.GenericRepository;
+using Microsoft.Extensions.DependencyInjection;
 using Newtonsoft.Json;
 using Services.Generic;
 using Services.IServices;
@@ -16,11 +18,27 @@ namespace Services.Services
     /// <summary>
     /// Exception logging service
     /// </summary>
-    public class ExceptionLogginService : GenericService<ExceptionModel, ExceptionEntity>, IExceptionLogginService
+    public class ExceptionLogginService : IExceptionLogginService//: GenericService<ExceptionModel, ExceptionEntity>, IExceptionLogginService
     {
-        public ExceptionLogginService(GenericDataRepository<ExceptionEntity> repo, IMapper mapper) : base(repo, mapper)
+
+        //private static readonly Lazy<ExceptionLogginService> lazy = new Lazy<ExceptionLogginService>(() => new ExceptionLogginService());
+        //public static ExceptionLogginService Instance => lazy.Value;
+
+        protected readonly IGenericDataRepository<ExceptionEntity> repository;
+        protected readonly IMapper mapper;
+
+        public ExceptionLogginService(IServiceProvider serviceProvider)
         {
+            using (var scope = serviceProvider.CreateScope()) // this will use `IServiceScopeFactory` internally
+            {
+                repository = scope.ServiceProvider.GetService<IGenericDataRepository<ExceptionEntity>>();
+                mapper = scope.ServiceProvider.GetService<IMapper>();
+            }
+
+            ExceptionLoggerExtentionMetod.service = this;
         }
+
+
         /// <summary>
         /// Save Exception details.
         /// </summary>
@@ -120,6 +138,7 @@ namespace Services.Services
     public static class ExceptionLoggerExtentionMetod
     {
         public static IExceptionLogginService service;
+
         /// <summary>
         /// Log the exception in DB
         /// </summary>

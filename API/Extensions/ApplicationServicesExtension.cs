@@ -1,5 +1,4 @@
-﻿using Web.Authorization.Policies;
-using Communication.Mail;
+﻿using Communication.Mail;
 using Communication.Utilities;
 using Data.Context;
 using Data.Context.Identity;
@@ -17,7 +16,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Web.Extensions
+namespace API.Extensions
 {
     /// <summary>
     /// Services injection resolver
@@ -37,8 +36,6 @@ namespace Web.Extensions
             services.AddTransient(typeof(IGenericDataRepository<>), typeof(GenericDataRepository<>));
             services.AddTransient(typeof(GenericDataRepository<>), typeof(GenericDataRepository<>));
 
-            services.AddScoped<SaveFormFileSerivce, SaveFormFileSerivce>();
-            services.AddScoped<SendOTPService, SendOTPService>();
             services.AddScoped<IManageService, ManageService>();
             services.AddScoped<IRoleActionsService, RoleActionsService>();
             services.AddScoped<IUserService, UserService>();
@@ -46,10 +43,6 @@ namespace Web.Extensions
             services.AddScoped<IRoleService, RoleService>();
             services.AddScoped<EmailFunctions, EmailFunctions>();
             services.AddScoped<EmailHelperCore, EmailHelperCore>();
-
-
-            services.AddScoped<IAuthorizationHandler, CustomRequireClaimHandler>();
-            services.AddScoped<IAuthorizationHandler, CustomRequirePolicyHandler>();
 
             services.AddSingleton<IExceptionLogginService, ExceptionLogginService>();
 

@@ -31,3 +31,4 @@
 *.user
 /.vs/Web/v16
 /API/obj
+/API/bin/Debug/net5.0

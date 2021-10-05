@@ -1,4 +1,5 @@
 ﻿using Data.Entities.Identity;
+using Microsoft.AspNetCore.DataProtection.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
@@ -12,7 +13,7 @@ namespace Data.Context.Identity
 {
     //IdentityDbContext contains all the identity tables
     public class AppIdentityContext : IdentityDbContext<User, Role, string, IdentityUserClaim<string>,
-        UserRole, IdentityUserLogin<string>, IdentityRoleClaim<string>, IdentityUserToken<string>>
+        UserRole, IdentityUserLogin<string>, IdentityRoleClaim<string>, IdentityUserToken<string>>, IDataProtectionKeyContext
     {
         public AppIdentityContext(DbContextOptions<AppIdentityContext> options) : base(options)
         {
@@ -21,7 +22,7 @@ namespace Data.Context.Identity
 
         public DbSet<RoleAction> RoleActions { get; set; }
         public DbSet<UserDeviceInfoEntity> UserDeviceInfos { get; set; }
-
+        public virtual DbSet<DataProtectionKey> DataProtectionKeys { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {

@@ -48,6 +48,11 @@ dotnet ef database update -s .\Ayurveda.Web\Ayurveda.Web.csproj --context AppIde
 
 dotnet ef database update -s .\Ayurveda.Web\Ayurveda.Web.csproj --context DataContext
 
+
+
+add-migration addDataProtection -Context AppIdentityContext -Startup Web -Project Data
+update-database addDataProtection -Context AppIdentityContext -Startup Web -Project Data
+
 9. Update migration command
 dotnet ef database update -s startup_project_name
   

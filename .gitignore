@@ -3,8 +3,9 @@
 ################################################################################
 
 /.vs/Ayurveda.Web
-/Ayurveda.Web/bin/Debug/netcoreapp3.1
-/Ayurveda.Web/obj
+/.vs/Web
+/Web/bin/Debug/netcoreapp3.1
+/Web/obj
 /Communication/obj
 /Communication/bin/Debug/netcoreapp3.1
 /Data/bin/Debug/netcoreapp3.1
@@ -32,3 +33,5 @@
 /.vs/Web/v16
 /API/obj
 /API/bin/Debug/net5.0
+/Web/bin/Debug/net5.0
+/Web/obj

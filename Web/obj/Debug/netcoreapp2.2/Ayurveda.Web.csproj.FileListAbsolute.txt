@@ -1,4 +1,0 @@
-F:\POC's\Admin\Ayurveda.Web\obj\Debug\netcoreapp2.2\Ayurveda.Web.csprojAssemblyReference.cache
-F:\POC's\Admin\Ayurveda.Web\obj\Debug\netcoreapp2.2\Ayurveda.Web.AssemblyInfoInputs.cache
-F:\POC's\Admin\Ayurveda.Web\obj\Debug\netcoreapp2.2\Ayurveda.Web.AssemblyInfo.cs
-F:\POC's\Admin\Ayurveda.Web\obj\Debug\netcoreapp2.2\Ayurveda.Web.csproj.CoreCompileInputs.cache

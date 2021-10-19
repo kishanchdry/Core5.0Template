@@ -20,6 +20,7 @@ using Shared.Common.Enums;
 using API.Authorization.JWT;
 using Data.Entities.Identity;
 using Services.Services;
+using Shared.Common;
 
 namespace API.Controllers
 {
@@ -40,6 +41,7 @@ namespace API.Controllers
         private readonly ISignInService signInService;
         private readonly IUserService userservice;
         private readonly EmailFunctions _emailFunctions;
+        private readonly ConfigurationKeys _configurationKeys;
 
         /// <summary>
         /// Initialize connstructor
@@ -49,12 +51,13 @@ namespace API.Controllers
         /// <param name="userservice"></param>
         /// <param name="emailFunctions"></param>
 
-        public UserAccountController(IOptions<JwtTokenSettings> jwtOptions, ISignInService signInService, IUserService userservice, EmailFunctions emailFunctions)
+        public UserAccountController(IOptions<JwtTokenSettings> jwtOptions, IOptions<ConfigurationKeys> configurationKeys, ISignInService signInService, IUserService userservice, EmailFunctions emailFunctions)
         {
             this.signInService = signInService;
             this.jwtTokenSettings = jwtOptions.Value;
             this.userservice = userservice;
             _emailFunctions = emailFunctions;
+            _configurationKeys = configurationKeys.Value;
         }
 
         #endregion [ Variables & Ctrs]
@@ -120,7 +123,6 @@ namespace API.Controllers
                         else
                         {
                             return new ApiResponses<LoginResponseModel>(ResponseMsg.Error, null, _errors, failureMsg: ResponseStatus.AccountDeactivated, apiName: "Login");
-
                         }
                     }
                     else
@@ -355,7 +357,8 @@ namespace API.Controllers
                 {
                     var token = await userservice.GeneratePasswordResetTokenAsync(user);
 
-                    var passwordResetLink = Url.Action("ResetPassword", "Account", new { email = request.EmailID, token = token }, Request.Scheme);
+                    var passwordResetLink = $"{_configurationKeys.WebRootPath}Account/ResetPassword?email={request.EmailID}&token={System.Web.HttpUtility.UrlEncode(token)}";
+                    // Url.Action("ResetPassword", "Account", new { email = request.EmailID, token = token }, Request.Scheme);
                     _emailFunctions.SendResetPasswordEmail(request.EmailID, "Forgot Password", (string.IsNullOrWhiteSpace(user?.UserName) ? user.NormalizedUserName : user?.UserName), passwordResetLink);
 
                     await userservice.SaveToken(user.Id, token, false);

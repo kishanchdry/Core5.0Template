@@ -1,4 +1,5 @@
 using System;
+using Microsoft.AspNetCore.Builder;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -29,13 +30,21 @@ namespace Web
         public static async Task Main(string[] args)
         {
             //CreateHostBuilder(args).Build().Run();
+            //var builder = WebApplication.CreateBuilder(args);
+
             //CreateHostBuilder(args).Build().Run();
 
             var host = CreateHostBuilder(args).Build();
+            
             using (var scope = host.Services.CreateScope())
             {
                 var services = scope.ServiceProvider;
                 var loggerFactory = services.GetRequiredService<ILoggerFactory>();
+
+               //r factory = new LoggerFactory();
+                //var logger = loggerFactory.CreateLogger("MyLog");
+                //loggerFactory.AddProvider();
+
 
                 ExceptionLoggerExtentionMetod.service = services.GetRequiredService<IExceptionLogginService>();
 

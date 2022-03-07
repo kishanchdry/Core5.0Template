@@ -1,2 +1,2 @@
 # Web
-Project In .Net core for EComm.
+Project In .Net core for Basic architecture.

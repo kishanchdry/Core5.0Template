@@ -76,3 +76,4 @@ Common issues
 
 ex = {"Introducing FOREIGN KEY constraint 'FK_ProductCategories_ProductCategories_ParentCategoryId' on table 'ProductCategories'
  may cause cycles or multiple cascade paths. Specify ON DELETE NO ACTION or ON UPDATE NO ACTION, or modify other FOREIGN KEY constrain...
+

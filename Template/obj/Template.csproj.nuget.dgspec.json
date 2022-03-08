@@ -1,0 +1,63 @@
+{
+  "format": 1,
+  "restore": {
+    "D:\\R&D Project\\DS Core Template Git\\Template\\Template.csproj": {}
+  },
+  "projects": {
+    "D:\\R&D Project\\DS Core Template Git\\Template\\Template.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\R&D Project\\DS Core Template Git\\Template\\Template.csproj",
+        "projectName": "Template",
+        "projectPath": "D:\\R&D Project\\DS Core Template Git\\Template\\Template.csproj",
+        "packagesPath": "C:\\Users\\admin\\.nuget\\packages\\",
+        "outputPath": "D:\\R&D Project\\DS Core Template Git\\Template\\obj\\",
+        "projectStyle": "PackageReference",
+        "skipContentFileWrite": true,
+        "configFilePaths": [
+          "C:\\Users\\admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net472"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "D:\\AMC_AWSGit\\amc\\AMC.Web\\Packages": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net472": {
+            "projectReferences": {}
+          }
+        }
+      },
+      "frameworks": {
+        "net472": {
+          "dependencies": {
+            "Microsoft.VSSDK.BuildTools": {
+              "target": "Package",
+              "version": "[16.9.2017, )"
+            },
+            "Microsoft.VisualStudio.SDK": {
+              "include": "Compile, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "target": "Package",
+              "version": "[16.0.206, )"
+            }
+          }
+        }
+      },
+      "runtimes": {
+        "win": {
+          "#import": []
+        },
+        "win-x64": {
+          "#import": []
+        },
+        "win-x86": {
+          "#import": []
+        }
+      }
+    }
+  }
+}
